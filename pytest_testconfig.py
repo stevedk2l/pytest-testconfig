@@ -75,7 +75,7 @@ def load_yaml(yaml_file, encoding):
     except (ImportError):
         raise Exception('unable to import YAML package. Can not continue.')
     global config
-    parsed_config = yaml.load(codecs.open(os.path.expanduser(yaml_file), 'r', encoding).read())
+    parsed_config = yaml.load(codecs.open(os.path.expanduser(yaml_file), 'r', encoding).read(), Loader=yaml.FullLoader)
     merge_map(config, parsed_config)
 
 
